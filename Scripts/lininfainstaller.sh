@@ -49,7 +49,7 @@ dbAddress=$dbHost:$dbPort
 hostName=`hostname`
 
 
-infainstallerloc=/home/$osUserName/Informatica/Archive/server
+infainstallerloc=/opt/Informatica/Archive/server
 infainstallionloc=\\/home\\/$osUserName\\/Informatica\\/10.0.0
 ispBinLocation=$infainstallionloc\\/isp\\/bin
 hadoopDirLocation=$infainstallionloc\\/services\\/shared\\/hadoop\\/hortonworks_2.2
@@ -57,9 +57,9 @@ hadoopYarnConfDirLocation=$hadoopDirLocation\\/conf
 hadoopInfaConfDirLocation=$hadoopDirLocation\\/infaConf
 defaultKeyLocation=$infainstallionloc\\/isp\\/config\\/keys
 
-utilityHome=/home/$osUserName/Informatica/Archive/Utilities
+utilityHome=/opt/Informatica/Archive/Utilities
 
-JAVA_HOME="/home/$osUserName/Informatica/Archive/server/source/java"
+JAVA_HOME="/opt/Informatica/Archive/server/source/java"
 export JAVA_HOME		
 PATH="$JAVA_HOME/bin":"$PATH"
 export PATH
@@ -134,9 +134,9 @@ echo Y Y | sh silentinstall.sh
 
 infainstallionlocown=/home/$osUserName/Informatica
 
-chown -R $osUserName $infainstallionlocown 
+chown -R $osUserName $infainstallionlocown
+chown -R $osUserName /opt/Informatica 
 chown -R $osUserName /mnt/infaaeshare
-
 #INFA BINARIES TO CLUSTER : RPM Installation - Start
 echo $osUserName $HDIClusterName $HDIClusterLoginUsername $HDIClusterLoginPassword $HDIClusterSSHHostname $HDIClusterSSHUsername $HDIClusterSSHPassword 
 
