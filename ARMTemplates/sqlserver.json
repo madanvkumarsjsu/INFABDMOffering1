@@ -32,7 +32,7 @@
         "VM01NicName": "[concat(parameters('VM01Name'), 'Nic')]",
         "dbOsType": "windows",
 
-        "ExtScriptURI": "https://raw.githubusercontent.com/vijayanand17/infascripts/master/",
+        "ExtScriptURI": "https://raw.githubusercontent.com/madanvkumarsjsu/INFABDMOffering1/master/Scripts/",
         "ExtCDBScriptFile": "createsqldbuser.ps1",
 
         "InfaCustomeDBVMImage": "https://ispstorenp.blob.core.windows.net/copiedvhds/BaseSQL142102201602-os-2016-02-21-11DE904C.vhd",

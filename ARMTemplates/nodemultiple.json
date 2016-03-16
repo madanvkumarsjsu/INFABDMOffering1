@@ -82,7 +82,7 @@
         }
     },
     "variables": {
-        "baseuri": "https://raw.githubusercontent.com/vijayanand17/tmptest/master/",
+        "baseuri": "https://raw.githubusercontent.com/madanvkumarsjsu/INFABDMOffering1/master/ARMTemplates/",
         "nodeVMUri": "[concat(variables('baseuri'), 'nodemulti', parameters('VMOSType'),'.json')]",
         "masterNodeIndex": 0,
         "gatewayNodeCount": "[sub(parameters('VMCount'), 1)]"
