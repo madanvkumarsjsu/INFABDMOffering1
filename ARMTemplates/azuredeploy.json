@@ -137,10 +137,40 @@
         "InfaKeyWord": {
             "type": "securestring",
             "minLength": 4
+        },
+        "HDIClusterName": {
+            "type": "string"
+        },
+        "HDIClusterLoginUsername": {
+            "type": "string"
+        },
+        "HDIClusterLoginPassword": {
+            "type": "string"
+        },
+        "HDIClusterSSHHostname": {
+            "type": "string"
+        },
+        "HDIClusterSSHUsername": {
+            "type": "string"
+        },
+        "HDIClusterSSHPassword": {
+            "type": "string"
+        },
+        "Clusterjobhistory": {
+            "type": "string"
+        },
+        "Clusterjobhistorywebapp": {
+            "type": "string"
+        },
+        "ClusterRMSaddress": {
+            "type": "string"
+        },
+        "ClusterRMWaddress": {
+            "type": "string"
         }
     },
     "variables": {
-        "baseuri": "https://raw.githubusercontent.com/vijayanand17/tmptest/master/",
+        "baseuri": "https://raw.githubusercontent.com/madanvkumarsjsu/INFABDMOffering1/master",
 
         "storageUri": "[concat(variables('baseuri'), 'storage', parameters('storageExistingOrNew'),'.json')]",
         "vnetUri": "[concat(variables('baseuri'), 'vnet', parameters('vnetExistingOrNew'),'.json')]",
@@ -313,6 +343,36 @@
                     },
                     "InfaKeyWord": {
                         "value": "[parameters('InfaKeyWord')]"
+                    },
+                    "HDIClusterName": {
+                        "value": "developementcluster"
+                    },
+                    "HDIClusterLoginUsername": {
+                        "value": "admin"
+                    },
+                    "HDIClusterLoginPassword": {
+                        "value": "Infabde@2016"
+                    },
+                    "HDIClusterSSHHostname": {
+                        "value": "developementcluster-ssh.azurehdinsight.net"
+                    },
+                    "HDIClusterSSHUsername": {
+                        "value": "blazeuser"
+                    },
+                    "HDIClusterSSHPassword": {
+                        "value": "Infabde@2016"
+                    },
+                    "Clusterjobhistory": {
+                        "value": "hn0-develo.1qm0c41xfx4ujjyfjesdd41rsb.ix.internal.cloudapp.net:10020"
+                    },
+                    "Clusterjobhistorywebapp": {
+                        "value": "hn0-develo.1qm0c41xfx4ujjyfjesdd41rsb.ix.internal.cloudapp.net:19888"
+                    },
+                    "ClusterRMSaddress": {
+                        "value": "hn0-develo.1qm0c41xfx4ujjyfjesdd41rsb.ix.internal.cloudapp.net:8030"
+                    },
+                    "ClusterRMWaddress": { 
+                        "value": "hn0-develo.1qm0c41xfx4ujjyfjesdd41rsb.ix.internal.cloudapp.net:8088"
                     }
                 }
             }

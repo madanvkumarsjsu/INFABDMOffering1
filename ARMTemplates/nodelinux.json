@@ -120,7 +120,7 @@
         "VMSubnetRef": "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName')), '/subnets/', parameters('subnetName'))]",
 
         "InfaCustomeVMImage": "https://ispstorenp.blob.core.windows.net/copiedvhds/BaseLU14I1018022016-os-2016-02-18-53D8A606.vhd",
-        "ExtScriptURI": "https://raw.githubusercontent.com/madanvkumarsjsu/INFABDMAzure/master/Scripts/",
+        "ExtScriptURI": "https://raw.githubusercontent.com/madanvkumarsjsu/INFABDMOffering1/master/Scripts/",
         "ExtWIScriptFile": "lininfainstaller.sh",
 
         "InfaNode1Port": 6005,
@@ -204,7 +204,7 @@
                             "uri": "[variables('InfaCustomeVMImage')]"
                         },
                         "vhd": {
-                            "uri": "[concat('https://ispstorenp.blob.core.windows.net/copiedvhds/', 'InfaBaseVMSMTest', add(parameters('Index'), 1), '.multi.osdisk.vhd')]"
+                            "uri": "[concat('https://ispstorenp.blob.core.windows.net/copiedvhds/', 'InfaBaseVMSMTest', add(parameters('Index'), 2), '.multi.osdisk.vhd')]"
                         }
                     }
                 },
