@@ -204,7 +204,7 @@
                             "uri": "[variables('InfaCustomeVMImage')]"
                         },
                         "vhd": {
-                            "uri": "[concat('https://ispstorenp.blob.core.windows.net/copiedvhds/', 'InfaBaseVMSMTest', add(parameters('Index'), 2), '.multi.osdisk.vhd')]"
+                            "uri": "[concat('https://ispstorenp.blob.core.windows.net/copiedvhds/', 'InfaBaseVMSMTest03', add(parameters('Index'), 1), '.multi.osdisk.vhd')]"
                         }
                     }
                 },

@@ -6,25 +6,25 @@
             "value": "existing"
         },
         "storageName": {
-            "value": "infaoffering1rg"
+            "value": "infastoragetesttwo"
         },
         "vnetExistingOrNew": {
-            "value": "existing"
+            "value": "new"
         },
         "vnetName": {
-            "value": "vnet03"
+            "value": "infavnetworktwo"
         },
         "vnetAddressPrefix": {
             "value": "10.0.0.0/16"
         },
         "subnetName": {
-            "value": "vsubnet03"
+            "value": "infasubnet"
         },
         "subnetPrefix": {
             "value": "10.0.0.0/24"
         },
         "VM01Name": {
-            "value": "dbvmtestsm1"
+            "value": "dbvmtestsm"
         },
         "VM01AdminUsername": {
             "value": "devuser"
@@ -48,7 +48,7 @@
             "value": "tempBG@2008"
         },
         "VMNamePrefix": {
-            "value": "infa"
+            "value": "vmtestsm"
         },
         "VMCount": {
             "value": 2
