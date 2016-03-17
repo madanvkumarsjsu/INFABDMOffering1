@@ -9,7 +9,7 @@
             "value": "infastoragetesttwo"
         },
         "vnetExistingOrNew": {
-            "value": "new"
+            "value": "existing"
         },
         "vnetName": {
             "value": "infavnetworktwo"
