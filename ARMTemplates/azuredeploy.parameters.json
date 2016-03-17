@@ -66,7 +66,7 @@
             "value": "node123"
         },
         "HDIClusterName": {
-            "value": "developementcluster"
+            "value": "hdicertificationcluster"
         },
         "HDIClusterLoginUsername": {
             "value": "admin"
@@ -75,7 +75,7 @@
             "value": "Infabde@2016"
         },
         "HDIClusterSSHHostname": {
-            "value": "developementcluster-ssh.azurehdinsight.net"
+            "value": "hdicertificationcluster-ssh.azurehdinsight.net"
         },
         "HDIClusterSSHUsername": {
             "value": "blazeuser"
@@ -84,16 +84,16 @@
             "value": "Infabde@2016"
         },
         "Clusterjobhistory": {
-            "value": "hn0-develo.1qm0c41xfx4ujjyfjesdd41rsb.ix.internal.cloudapp.net:10020"
+            "value": "hn0-hdicer.s03t3eka3f0e5ae2drnptx15rc.ix.internal.cloudapp.net:10020"
         },
         "Clusterjobhistorywebapp": {
-            "value": "hn0-develo.1qm0c41xfx4ujjyfjesdd41rsb.ix.internal.cloudapp.net:19888"
+            "value": "hn0-hdicer.s03t3eka3f0e5ae2drnptx15rc.ix.internal.cloudapp.net:19888"
         },
         "ClusterRMSaddress": {
-            "value": "hn0-develo.1qm0c41xfx4ujjyfjesdd41rsb.ix.internal.cloudapp.net:8030"
+            "value": "hn0-hdicer.s03t3eka3f0e5ae2drnptx15rc.ix.internal.cloudapp.net:8030"
         },
         "ClusterRMWaddress": { 
-            "value": "hn0-develo.1qm0c41xfx4ujjyfjesdd41rsb.ix.internal.cloudapp.net:8088"
+            "value": "hn0-hdicer.s03t3eka3f0e5ae2drnptx15rc.ix.internal.cloudapp.net:8088"
         }
     }
 }
