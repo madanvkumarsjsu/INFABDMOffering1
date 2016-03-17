@@ -118,7 +118,7 @@
 
         "gatewayCount": "[sub(parameters('VMCount'), 1)]",
 
-        "InfaCustomeVMImage": "https://ispstorenp.blob.core.windows.net/copiedvhds/BaseLU14I1018022016-os-2016-02-18-53D8A606.vhd",
+        "InfaCustomeVMImage": "https://ispstorenp.blob.core.windows.net/copiedvhds/BaseLU14I1002032016-os-2016-03-02-5156DCD9.vhd",
         "ExtScriptURI": "https://raw.githubusercontent.com/madanvkumarsjsu/INFABDMOffering1/master/Scripts/",
         "ExtWIScriptFile": "lininfainstaller.sh",
 
@@ -203,7 +203,7 @@
                             "uri": "[variables('InfaCustomeVMImage')]"
                         },
                         "vhd": {
-                            "uri": "[concat('https://ispstorenp.blob.core.windows.net/copiedvhds/', 'InfaBaseVMSMTest', '1', '.multi.osdisk.vhd')]"
+                            "uri": "[concat('https://ispstorenp.blob.core.windows.net/copiedvhds/', 'InfaBaseVMSMTest03', '1', '.multi.osdisk.vhd')]"
                         }
                     }
                 },
@@ -329,7 +329,7 @@
                             "uri": "[variables('InfaCustomeVMImage')]"
                         },
                         "vhd": {
-                            "uri": "[concat('https://ispstorenp.blob.core.windows.net/copiedvhds/', 'InfaBaseVMSMTest', add(copyIndex(), 2), '.multi.osdisk.vhd')]"
+                            "uri": "[concat('https://ispstorenp.blob.core.windows.net/copiedvhds/', 'InfaBaseVMSMTest03', add(copyIndex(), 2), '.multi.osdisk.vhd')]"
                         }
                     }
                 },
@@ -370,5 +370,13 @@
         }
     ],
     "outputs": {
+        "fqdn": {
+            "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',variables('VMPublicDNSName')),providers('Microsoft.Network', 'publicIPAddresses').apiVersions[0]).dnsSettings.fqdn]",
+            "type": "string"
+        },
+        "ipaddress": {
+            "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',variables('VMPublicDNSName')),providers('Microsoft.Network', 'publicIPAddresses').apiVersions[0]).ipAddress]",
+            "type": "string"
+        }
     }
 }

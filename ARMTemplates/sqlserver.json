@@ -36,7 +36,7 @@
         "ExtCDBScriptFile": "createsqldbuser.ps1",
 
         "InfaCustomeDBVMImage": "https://ispstorenp.blob.core.windows.net/copiedvhds/BaseSQL142102201602-os-2016-02-21-11DE904C.vhd",
-        "InfaCustomVMDisk1": "[concat('https://ispstorenp.blob.core.windows.net/copiedvhds/', 'SQLServer2014C01Test.osdisk.vhd')]",
+        "InfaCustomVMDisk1": "[concat('https://ispstorenp.blob.core.windows.net/copiedvhds/', 'SQLServer2014C01Test03.osdisk.vhd')]",
 
         "VNetID": "[resourceId('Microsoft.Network/virtualNetworks', parameters('VNetName'))]",
         "SubnetId": "[concat(variables('VNetID'), '/subnets/', parameters('SubnetName'))]"
