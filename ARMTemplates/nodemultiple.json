@@ -79,6 +79,36 @@
         "InfaKeyWord": {
             "type": "securestring",
             "minLength": 4
+        },
+        "HDIClusterName": {
+            "type": "string"
+        },
+        "HDIClusterLoginUsername": {
+            "type": "string"
+        },
+        "HDIClusterLoginPassword": {
+            "type": "string"
+        },
+        "HDIClusterSSHHostname": {
+            "type": "string"
+        },
+        "HDIClusterSSHUsername": {
+            "type": "string"
+        },
+        "HDIClusterSSHPassword": {
+            "type": "string"
+        },
+        "Clusterjobhistory": {
+            "type": "string"
+        },
+        "Clusterjobhistorywebapp": {
+            "type": "string"
+        },
+        "ClusterRMSaddress": {
+            "type": "string"
+        },
+        "ClusterRMWaddress": {
+            "type": "string"
         }
     },
     "variables": {
@@ -154,6 +184,36 @@
                     },
                     "InfaKeyWord": {
                         "value": "[parameters('InfaKeyWord')]"
+                    },
+                    "HDIClusterName": {
+                        "value": "[parameters('HDIClusterName')]"
+                    },
+                    "HDIClusterLoginUsername": {
+                        "value": "[parameters('HDIClusterLoginUsername')]"
+                    },
+                    "HDIClusterLoginPassword": {
+                         "value": "[parameters('HDIClusterLoginPassword')]"
+                    },
+                    "HDIClusterSSHHostname": {
+                         "value": "[parameters('HDIClusterSSHHostname')]"
+                    },
+                    "HDIClusterSSHUsername": {
+                        "value": "[parameters('HDIClusterSSHUsername')]"
+                    },
+                    "HDIClusterSSHPassword": {
+                         "value": "[parameters('HDIClusterSSHPassword')]"
+                    },
+                    "Clusterjobhistory": {
+                         "value": "[parameters('Clusterjobhistory')]"
+                    },
+                    "Clusterjobhistorywebapp": {
+                        "value": "[parameters('Clusterjobhistorywebapp')]"
+                    },
+                    "ClusterRMSaddress": {
+                        "value": "[parameters('ClusterRMSaddress')]"
+                    },
+                    "ClusterRMWaddress": { 
+                         "value": "[parameters('ClusterRMWaddress')]"
                     }
                 }
             }

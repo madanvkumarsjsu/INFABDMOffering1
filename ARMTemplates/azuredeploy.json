@@ -345,34 +345,34 @@
                         "value": "[parameters('InfaKeyWord')]"
                     },
                     "HDIClusterName": {
-                        "value": "developementcluster"
+                        "value": "[parameters('HDIClusterName')]"
                     },
                     "HDIClusterLoginUsername": {
-                        "value": "admin"
+                        "value": "[parameters('HDIClusterLoginUsername')]"
                     },
                     "HDIClusterLoginPassword": {
-                        "value": "Infabde@2016"
+                         "value": "[parameters('HDIClusterLoginPassword')]"
                     },
                     "HDIClusterSSHHostname": {
-                        "value": "developementcluster-ssh.azurehdinsight.net"
+                         "value": "[parameters('HDIClusterSSHHostname')]"
                     },
                     "HDIClusterSSHUsername": {
-                        "value": "blazeuser"
+                        "value": "[parameters('HDIClusterSSHUsername')]"
                     },
                     "HDIClusterSSHPassword": {
-                        "value": "Infabde@2016"
+                         "value": "[parameters('HDIClusterSSHPassword')]"
                     },
                     "Clusterjobhistory": {
-                        "value": "hn0-develo.1qm0c41xfx4ujjyfjesdd41rsb.ix.internal.cloudapp.net:10020"
+                         "value": "[parameters('Clusterjobhistory')]"
                     },
                     "Clusterjobhistorywebapp": {
-                        "value": "hn0-develo.1qm0c41xfx4ujjyfjesdd41rsb.ix.internal.cloudapp.net:19888"
+                        "value": "[parameters('Clusterjobhistorywebapp')]"
                     },
                     "ClusterRMSaddress": {
-                        "value": "hn0-develo.1qm0c41xfx4ujjyfjesdd41rsb.ix.internal.cloudapp.net:8030"
+                        "value": "[parameters('ClusterRMSaddress')]"
                     },
                     "ClusterRMWaddress": { 
-                        "value": "hn0-develo.1qm0c41xfx4ujjyfjesdd41rsb.ix.internal.cloudapp.net:8088"
+                         "value": "[parameters('ClusterRMWaddress')]"
                     }
                 }
             }

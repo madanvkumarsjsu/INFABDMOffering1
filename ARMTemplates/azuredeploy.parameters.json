@@ -51,7 +51,7 @@
             "value": "vmtestsm"
         },
         "VMCount": {
-            "value": 2
+            "value": 1
         },
         "InfaDomainName": {
             "value": "ISPDomain"
