@@ -74,7 +74,7 @@ then
 	sleep 300
 else
 	cd $utilityHome
-    #java -jar iadutility.jar createAzureFileShare -storageaccesskey $storageKey -storagename $storageName
+    java -jar iadutility.jar createAzureFileShare -storageaccesskey $storageKey -storagename $storageName
 fi
 
 apt-get install cifs-utils
@@ -130,7 +130,7 @@ sed -i s/^DOMAIN_PSSWD=.*/DOMAIN_PSSWD=$domainPassword/ $infainstallerloc/Silent
 sed -i s/^DOMAIN_CNFRM_PSSWD=.*/DOMAIN_CNFRM_PSSWD=$domainPassword/ $infainstallerloc/SilentInput.properties
 
 cd $infainstallerloc
-#echo Y Y | sh silentinstall.sh 
+echo Y Y | sh silentinstall.sh 
 
 infainstallionlocown=/home/$osUserName/Informatica
 
