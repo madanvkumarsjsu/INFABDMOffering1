@@ -145,7 +145,7 @@
             "type": "string"
         },
         "HDIClusterLoginPassword": {
-            "type": "string"
+            "type": "securestring"
         },
         "HDIClusterSSHHostname": {
             "type": "string"
@@ -154,7 +154,7 @@
             "type": "string"
         },
         "HDIClusterSSHPassword": {
-            "type": "string"
+            "type": "securestring"
         },
         "Clusterjobhistory": {
             "type": "string"
