@@ -3,13 +3,13 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageExistingOrNew": {
-            "value": "existing"
+            "value": "new"
         },
         "storageName": {
             "value": "infastoragetesttwo"
         },
         "vnetExistingOrNew": {
-            "value": "existing"
+            "value": "new"
         },
         "vnetName": {
             "value": "infavnetworktwo"
@@ -65,6 +65,12 @@
         "InfaKeyWord": {
             "value": "node123"
         },
+        "storageType": {
+            "value": "Standard_LRS"
+        },
+        "NodeVMSize": {
+            "value": "Standard_D11"
+		},
         "HDIClusterName": {
             "value": "hdicertificationcluster"
         },
@@ -94,6 +100,9 @@
         },
         "ClusterRMWaddress": { 
             "value": "hn0-hdicer.s03t3eka3f0e5ae2drnptx15rc.ix.internal.cloudapp.net:8088"
+        },
+		"DBVMSize": {
+            "value": "Standard_D3"
         }
     }
 }

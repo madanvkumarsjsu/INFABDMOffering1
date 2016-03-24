@@ -81,7 +81,7 @@
                         "type": "Microsoft.Compute.UserNameTextBox",
                         "label": "Username",
                         "toolTip": "Administrator username for the machines",
-                        "osPlatform": "Windows",
+                        "osPlatform": "Linux",
                         "constraints": {
                             "required": true
                         }
@@ -91,12 +91,15 @@
                         "type": "Microsoft.Compute.CredentialsCombo",
                         "label": {
                             "password": "Password",
-                            "confirmPassword": "Confirm password"
+                            "confirmPassword": "Confirm password",
+                            "sshPublicKey": "SSH public key"
                         },
                         "toolTip": {
-                            "password": "Administrator password for the machines"
+                            "authenticationType": "",
+                            "password": "Administrator password for the machines",
+                            "sshPublicKey": "Administrator public key for the machines"
                         },
-                        "osPlatform": "Windows",
+                        "osPlatform": "Linux",
                         "constraints": {
                             "required": true
                         }
@@ -146,6 +149,21 @@
                 },
                 "bladeTitle": "Database settings",
                 "elements": [
+                    {
+                        "name": "databaseType",
+                        "type": "Microsoft.Common.DropDown",
+                        "label": "Database type",
+                        "defaultValue": "SQL Server 2014",
+                        "toolTip": "",
+                        "constraints": {
+                            "allowedValues": [
+                                {
+                                    "label": "SQL Server 2014",
+                                    "value": "sqlserver"
+                                }
+                            ]
+                        }
+                    },
                     {
                         "name": "databaseName",
                         "type": "Microsoft.Common.TextBox",
@@ -239,8 +257,8 @@
                         },
                         "constraints": {
                             "required": true,
-                            "regex": "^.{4,}$",
-                            "validationMessage": "Password must at least 4 characters in length"
+                            "regex": "^(?:(?=.*[a-z])(?:(?=.*[A-Z])(?=.*[\\d\\W])|(?=.*\\W)(?=.*\\d))|(?=.*\\W)(?=.*[A-Z])(?=.*\\d)).{5,72}$",
+                            "validationMessage": "Password must be at least 5 characters in length. Should contain at least one special, number, upper-case and lower-case character"
                         },
                         "options": {
                             "hideConfirmation": false
@@ -307,8 +325,8 @@
                         },
                         "constraints": {
                             "required": true,
-                            "regex": "^.{8,}$",
-                            "validationMessage": "Keyphrase must at least 8 characters in length"
+                            "regex": "^(?:(?=.*[a-z])(?:(?=.*[A-Z])(?=.*[\\d\\W])|(?=.*\\W)(?=.*\\d))|(?=.*\\W)(?=.*[A-Z])(?=.*\\d)).{8,72}$",
+                            "validationMessage": "Keyphrase must be at least 8 characters in length. Should contain at least one special, number, upper-case and lower-case character"
                         },
                         "options": {
                             "hideConfirmation": true
@@ -428,35 +446,42 @@
 
         "outputs": {
             "location": "[location()]",
-			"virtualNetworkName": "[steps('nodeVMConfiguration').infavnet.name]",
+			"vnetName": "[steps('nodeVMConfiguration').infavnet.name]",
+			"vnetAddressPrefix": "[steps('nodeVMConfiguration').infavnet.addressPrefix]",
+			"vnetExistingOrNew": "[steps('nodeVMConfiguration').infavnet.newOrExisting]",
 			"subnetName": "[steps('nodeVMConfiguration').infavnet.subnets.subnet1.name]",
-			"storageAccountName": "[steps('nodeVMConfiguration').storageAccount.name]",
-			"storageAccountType": "[steps('nodeVMConfiguration').storageAccount.type]",
-			"nodeCount": "[steps('nodeVMConfiguration').domainNodeCount]",
-			"nodeVMPrefix": "[steps('nodeVMConfiguration').nodeVMPrefix]",
-			"nodeVMAdminUsername": "[steps('nodeVMConfiguration').nodeVMAdminUsername]",
-			"nodeVMAdminPassword": "[steps('nodeVMConfiguration').nodeVMAdminPassword]",
-			"nodeVMSize": "[steps('nodeVMConfiguration').nodeVMSize]",
-			"databaseName": "[steps('databaseConfiguration').databaseName]",
-			"databaseVMSize": "[steps('databaseConfiguration').databaseVMSize]",
-			"dbVMAdminUsername": "[steps('databaseConfiguration').dbVMAdminUsername]",
-			"dbVMAdminPassword": "[steps('databaseConfiguration').dbVMAdminPassword]",
-			"infaDomainDBUser": "[steps('databaseConfiguration').infaDomainDBUser]",
-			"infaDomainDBPassword": "[steps('databaseConfiguration').infaDomainDBPassword]",
-			"infaDomainName": "[steps('infaDomainConfiguration').infaDomainName]",
-			"infaDomainUser": "[steps('infaDomainConfiguration').infaDomainUser]",
-			"infaDomainPassword": "[steps('infaDomainConfiguration').infaDomainPassword]",
-			"infaDomainEncryptionKeyword": "[steps('infaDomainConfiguration').infaDomainEncryptionKeyword]",
-			"infaDomainEncryptionKeyword": "[steps('infaBDEConfiguration').HDIClusterName]",
-			"infaDomainEncryptionKeyword": "[steps('infaBDEConfiguration').HDIClusterLoginUsername]",
-			"infaDomainEncryptionKeyword": "[steps('infaBDEConfiguration').HDIClusterLoginPassword]",
-			"infaDomainEncryptionKeyword": "[steps('infaBDEConfiguration').HDIClusterSSHHostname]",
-            "infaDomainEncryptionKeyword": "[steps('infaBDEConfiguration').HDIClusterSSHUsername]",
-            "infaDomainEncryptionKeyword": "[steps('infaBDEConfiguration').HDIClusterSSHPassword]",
-			"infaDomainEncryptionKeyword": "[steps('infaBDEConfiguration').Clusterjobhistory]",
-			"infaDomainEncryptionKeyword": "[steps('infaBDEConfiguration').Clusterjobhistorywebapp]",
-			"infaDomainEncryptionKeyword": "[steps('infaBDEConfiguration').ClusterRMSaddress]",
-			"infaDomainEncryptionKeyword": "[steps('infaBDEConfiguration').ClusterRMWaddress]"
+			"subnetPrefix": "[steps('nodeVMConfiguration').infavnet.subnets.subnet1.addressPrefix]",
+			"storageName": "[steps('nodeVMConfiguration').storageAccount.name]",
+			"storageType": "[steps('nodeVMConfiguration').storageAccount.type]",
+			"storageExistingOrNew": "[steps('nodeVMConfiguration').storageAccount.newOrExisting]",
+			"VMCount": "[steps('nodeVMConfiguration').domainNodeCount]",
+			"VMNamePrefix": "[steps('nodeVMConfiguration').nodeVMPrefix]",
+			"VMAdminUserName": "[steps('nodeVMConfiguration').nodeVMAdminUsername]",
+			"VMAuthType": "[steps('nodeVMConfiguration').nodeVMAdminPassword.authenticationType]",
+			"VMAdminPassword": "[steps('nodeVMConfiguration').nodeVMAdminPassword.password]",
+			"VMAdminSshPublicKey": "[steps('nodeVMConfiguration').nodeVMAdminPassword.sshPublicKey]",
+			"NodeVMSize": "[steps('nodeVMConfiguration').nodeVMSize]",
+			"VM01Name": "[steps('databaseConfiguration').databaseName]",
+			"DBVMSize": "[steps('databaseConfiguration').databaseVMSize]",
+			"databaseType": "[steps('databaseConfiguration').databaseType]",
+			"VM01AdminUsername": "[steps('databaseConfiguration').dbVMAdminUsername]",
+			"VM01AdminPassword": "[steps('databaseConfiguration').dbVMAdminPassword]",
+			"DBUser": "[steps('databaseConfiguration').infaDomainDBUser]",
+			"DBPassword": "[steps('databaseConfiguration').infaDomainDBPassword]",
+			"InfaDomainName": "[steps('infaDomainConfiguration').infaDomainName]",
+			"InfaDomainUser": "[steps('infaDomainConfiguration').infaDomainUser]",
+			"InfaDomainPassword": "[steps('infaDomainConfiguration').infaDomainPassword]",
+			"InfaKeyWord": "[steps('infaDomainConfiguration').infaDomainEncryptionKeyword]",
+			"HDIClusterName": "[steps('infaBDEConfiguration').HDIClusterName]",
+			"HDIClusterLoginUsername": "[steps('infaBDEConfiguration').HDIClusterLoginUsername]",
+			"HDIClusterLoginPassword": "[steps('infaBDEConfiguration').HDIClusterLoginPassword]",
+			"HDIClusterSSHHostname": "[steps('infaBDEConfiguration').HDIClusterSSHHostname]",
+			"HDIClusterSSHUsername": "[steps('infaBDEConfiguration').HDIClusterSSHUsername]",
+			"HDIClusterSSHPassword": "[steps('infaBDEConfiguration').HDIClusterSSHPassword]",
+			"Clusterjobhistory": "[steps('infaBDEConfiguration').Clusterjobhistory]",
+			"Clusterjobhistorywebapp": "[steps('infaBDEConfiguration').Clusterjobhistorywebapp]",
+			"ClusterRMSaddress": "[steps('infaBDEConfiguration').ClusterRMSaddress]",
+			"ClusterRMWaddress": "[steps('infaBDEConfiguration').ClusterRMWaddress]"
         }
     }
 }

@@ -2,6 +2,9 @@
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "storageName": {
+            "type": "string"
+        },
         "VM01Name": {
             "type": "string"
         },
@@ -36,17 +39,26 @@
         "ExtCDBScriptFile": "createsqldbuser.ps1",
 
         "InfaCustomeDBVMImage": "https://ispstorenp.blob.core.windows.net/copiedvhds/BaseSQL142102201602-os-2016-02-21-11DE904C.vhd",
-        "InfaCustomVMDisk1": "[concat('https://ispstorenp.blob.core.windows.net/copiedvhds/', 'SQLServer2014C01Test03.osdisk.vhd')]",
+        //"InfaCustomVMDisk1": "[concat('https://', parameters('storageName'), '.blob.core.windows.net/vhds/', parameters('VM01Name'), '.SQLServer2014.osdisk.vhd')]",
+        "InfaCustomVMDisk1": "[concat('https://ispstorenp.blob.core.windows.net/copiedvhds/', 'SQLServer2014C01Test05.osdisk.vhd')]",
 
         "VNetID": "[resourceId('Microsoft.Network/virtualNetworks', parameters('VNetName'))]",
-        "SubnetId": "[concat(variables('VNetID'), '/subnets/', parameters('SubnetName'))]"
+        "SubnetId": "[concat(variables('VNetID'), '/subnets/', parameters('SubnetName'))]",
+
+        "imagePublisher": "informatica",
+        "imageOffer": "sqlserver-2014-image-preview",
+        "osVersion": "sqlserver-2014-image-for-pc-bdm"
+
+        /*"imagePublisher": "MicrosoftWindowsServer",
+        "imageOffer": "WindowsServer",
+        "osVersion": "2012-R2-Datacenter"*/
     },
     "resources": [
         {
             "name": "[parameters('VM01Name')]",
             "type": "Microsoft.Network/publicIPAddresses",
             "location": "[resourceGroup().location]",
-            "apiVersion": "2015-05-01-preview",
+            "apiVersion": "2015-06-15",
             "dependsOn": [ ],
             "tags": {
                 "displayName": "PubIP01"
@@ -62,7 +74,7 @@
             "name": "[variables('VM01NicName')]",
             "type": "Microsoft.Network/networkInterfaces",
             "location": "[resourceGroup().location]",
-            "apiVersion": "2015-05-01-preview",
+            "apiVersion": "2015-06-15",
             "dependsOn": [
                 "[concat('Microsoft.Network/publicIPAddresses/', parameters('VM01Name'))]"
             ],
@@ -90,10 +102,15 @@
             "name": "[parameters('VM01Name')]",
             "type": "Microsoft.Compute/virtualMachines",
             "location": "[resourceGroup().location]",
-            "apiVersion": "2015-05-01-preview",
+            "apiVersion": "2015-06-15",
             "dependsOn": [
                 "[concat('Microsoft.Network/networkInterfaces/', variables('VM01NicName'))]"
             ],
+            /*"plan": {
+                "name": "BYOL",
+                "publisher": "[variables('imagePublisher')]",
+                "product": "[variables('imageOffer')]"
+            },*/
             "tags": {
                 "displayName": "VM01"
             },
@@ -106,6 +123,22 @@
                     "adminUsername": "[parameters('VM01AdminUsername')]",
                     "adminPassword": "[parameters('VM01AdminPassword')]"
                 },
+                /*"storageProfile": {
+                    "imageReference": {
+                        "publisher": "[variables('imagePublisher')]",
+                        "offer": "[variables('imageOffer')]",
+                        "sku": "[variables('osVersion')]",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "name": "InfaOSDisk",
+                        "caching": "ReadWrite",
+                        "createOption": "FromImage",
+                        "vhd": {
+                            "uri": "[concat('https://', parameters('storageName'), '.blob.core.windows.net/vhds/', parameters('VM01Name'), '.osdisk.vhd')]"
+                        }
+                    }
+                },*/
                 "storageProfile": {
                     "osDisk": {
                         "name": "VM01OSDisk",
@@ -148,7 +181,9 @@
                         "settings": {
                             "fileUris": [
                                 "[concat(variables('ExtScriptURI'),  variables('ExtCDBScriptFile'))]"
-                            ],
+                            ]
+                        },
+                        "protectedSettings": {
                             "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file ', variables('ExtCDBScriptFile'), ' -dbUserName ', parameters('DBUser'), ' -dbPassword ', parameters('DBPassword'))]"
                         }
                     }
@@ -157,5 +192,13 @@
         }
     ],
     "outputs": {
+        "fqdn": {
+            "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',parameters('VM01Name')),providers('Microsoft.Network', 'publicIPAddresses').apiVersions[0]).dnsSettings.fqdn]",
+            "type": "string"
+        },
+        "ipaddress": {
+            "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',parameters('VM01Name')),providers('Microsoft.Network', 'publicIPAddresses').apiVersions[0]).ipAddress]",
+            "type": "string"
+        }
     }
 }
