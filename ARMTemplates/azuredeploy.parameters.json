@@ -103,6 +103,9 @@
         },
 		"DBVMSize": {
             "value": "Standard_D3"
+        },
+        "VMAuthType": {
+            "value": "password"
         }
     }
 }
