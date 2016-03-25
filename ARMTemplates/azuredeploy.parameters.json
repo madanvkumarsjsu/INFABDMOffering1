@@ -3,13 +3,13 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageExistingOrNew": {
-            "value": "new"
+            "value": "existing"
         },
         "storageName": {
             "value": "infastoragetesttwo"
         },
         "vnetExistingOrNew": {
-            "value": "new"
+            "value": "existing"
         },
         "vnetName": {
             "value": "infavnetworktwo"
@@ -38,9 +38,6 @@
         "DBPassword": {
             "value": "tempBG@2008"
         },
-        "VMOSType": {
-            "value": "linux"
-        },
         "VMAdminUserName": {
             "value": "devuser"
         },
@@ -63,7 +60,7 @@
             "value": "admin"
         },
         "InfaKeyWord": {
-            "value": "node123"
+            "value": "ISP@admin123"
         },
         "storageType": {
             "value": "Standard_LRS"
@@ -72,7 +69,7 @@
             "value": "Standard_D11"
 		},
         "HDIClusterName": {
-            "value": "hdicertificationcluster"
+            "value": "Blazecluster"
         },
         "HDIClusterLoginUsername": {
             "value": "admin"
@@ -81,7 +78,7 @@
             "value": "Infabde@2016"
         },
         "HDIClusterSSHHostname": {
-            "value": "hdicertificationcluster-ssh.azurehdinsight.net"
+            "value": "Blazecluster-ssh.azurehdinsight.net"
         },
         "HDIClusterSSHUsername": {
             "value": "blazeuser"
@@ -90,22 +87,28 @@
             "value": "Infabde@2016"
         },
         "Clusterjobhistory": {
-            "value": "hn0-hdicer.s03t3eka3f0e5ae2drnptx15rc.ix.internal.cloudapp.net:10020"
+            "value": "hn0-blazec.halr5i3ozwputntmdg4rjl0ddg.ix.internal.cloudapp.net:10020"
         },
         "Clusterjobhistorywebapp": {
-            "value": "hn0-hdicer.s03t3eka3f0e5ae2drnptx15rc.ix.internal.cloudapp.net:19888"
+            "value": "hn0-blazec.halr5i3ozwputntmdg4rjl0ddg.ix.internal.cloudapp.net:19888"
         },
         "ClusterRMSaddress": {
-            "value": "hn0-hdicer.s03t3eka3f0e5ae2drnptx15rc.ix.internal.cloudapp.net:8030"
+            "value": "hn0-blazec.halr5i3ozwputntmdg4rjl0ddg.ix.internal.cloudapp.net:8030"
         },
         "ClusterRMWaddress": { 
-            "value": "hn0-hdicer.s03t3eka3f0e5ae2drnptx15rc.ix.internal.cloudapp.net:8088"
+            "value": "hn0-blazec.halr5i3ozwputntmdg4rjl0ddg.ix.internal.cloudapp.net:8088"
         },
 		"DBVMSize": {
             "value": "Standard_D3"
         },
         "VMAuthType": {
             "value": "password"
+        },
+        "location": {
+            "value": "Southeast Asia"
+        },
+        "VMAdminSshPublicKey": {
+            "value": "testdummykey"
         }
     }
 }
