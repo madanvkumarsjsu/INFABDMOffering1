@@ -51,11 +51,12 @@ hostName=`hostname`
 
 infainstallerloc=/opt/Informatica/Archive/server
 infainstallionloc=\\/home\\/$osUserName\\/Informatica\\/10.0.0
-ispBinLocation=$infainstallionloc\\/isp\\/bin
-hadoopDirLocation=$infainstallionloc\\/services\\/shared\\/hadoop\\/hortonworks_2.2
-hadoopYarnConfDirLocation=$hadoopDirLocation\\/conf
-hadoopInfaConfDirLocation=$hadoopDirLocation\\/infaConf
-defaultKeyLocation=$infainstallionloc\\/isp\\/config\\/keys
+infaHome=/home/$osUserName/Informatica/10.0.0
+ispBinLocation=$infaHome/isp/bin
+hadoopDirLocation=$infaHome/services/shared/hadoop/hortonworks_2.2
+hadoopYarnConfDirLocation=$hadoopDirLocation/conf
+hadoopInfaConfDirLocation=$hadoopDirLocation/infaConf
+defaultKeyLocation=$infaHome/isp/config/keys
 
 utilityHome=/opt/Informatica/Archive/Utilities
 
