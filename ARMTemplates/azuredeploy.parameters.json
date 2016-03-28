@@ -3,25 +3,25 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageExistingOrNew": {
-            "value": "new"
+            "value": "existing"
         },
         "storageName": {
             "value": "infastoragetesttwo"
         },
         "vnetExistingOrNew": {
-            "value": "existing"
+            "value": "new"
         },
         "vnetName": {
-            "value": "BDMVnet"
+            "value": "BDMVnet1"
         },
         "vnetAddressPrefix": {
-            "value": "11.10.0.0/16"
+            "value": "11.0.0.0/16"
         },
         "subnetName": {
-            "value": "BDMSubnet"
+            "value": "BDMSubnet1"
         },
         "subnetPrefix": {
-            "value": "11.10.0.0/24"
+            "value": "11.0.0.0/24"
         },
         "VM01Name": {
             "value": "dbvmtestsm"
