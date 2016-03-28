@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageExistingOrNew": {
-            "value": "existing"
+            "value": "new"
         },
         "storageName": {
             "value": "infastoragetesttwo"
@@ -12,16 +12,16 @@
             "value": "existing"
         },
         "vnetName": {
-            "value": "infavnetworktwo"
+            "value": "BDMVnet"
         },
         "vnetAddressPrefix": {
-            "value": "10.0.0.0/16"
+            "value": "11.10.0.0/16"
         },
         "subnetName": {
-            "value": "infasubnet"
+            "value": "BDMSubnet"
         },
         "subnetPrefix": {
-            "value": "10.0.0.0/24"
+            "value": "11.10.0.0/24"
         },
         "VM01Name": {
             "value": "dbvmtestsm"
@@ -69,7 +69,7 @@
             "value": "Standard_D11"
 		},
         "HDIClusterName": {
-            "value": "Blazecluster"
+            "value": "BDMHDICluster"
         },
         "HDIClusterLoginUsername": {
             "value": "admin"
@@ -78,7 +78,7 @@
             "value": "Infabde@2016"
         },
         "HDIClusterSSHHostname": {
-            "value": "Blazecluster-ssh.azurehdinsight.net"
+            "value": "BDMHDICluster-ssh.azurehdinsight.net"
         },
         "HDIClusterSSHUsername": {
             "value": "blazeuser"
@@ -87,16 +87,16 @@
             "value": "Infabde@2016"
         },
         "Clusterjobhistory": {
-            "value": "hn0-blazec.halr5i3ozwputntmdg4rjl0ddg.ix.internal.cloudapp.net:10020"
+            "value": "hn0-bdmhdi.tbb5vxd4i1muppjld0wsze4fth.ix.internal.cloudapp.net:10020"
         },
         "Clusterjobhistorywebapp": {
-            "value": "hn0-blazec.halr5i3ozwputntmdg4rjl0ddg.ix.internal.cloudapp.net:19888"
+            "value": "hn0-bdmhdi.tbb5vxd4i1muppjld0wsze4fth.ix.internal.cloudapp.net:19888"
         },
         "ClusterRMSaddress": {
-            "value": "hn0-blazec.halr5i3ozwputntmdg4rjl0ddg.ix.internal.cloudapp.net:8030"
+            "value": "hn0-bdmhdi.tbb5vxd4i1muppjld0wsze4fth.ix.internal.cloudapp.net:8030"
         },
         "ClusterRMWaddress": { 
-            "value": "hn0-blazec.halr5i3ozwputntmdg4rjl0ddg.ix.internal.cloudapp.net:8088"
+            "value": "hn0-bdmhdi.tbb5vxd4i1muppjld0wsze4fth.ix.internal.cloudapp.net:8088"
         },
 		"DBVMSize": {
             "value": "Standard_D3"
