@@ -39,8 +39,7 @@
         "ExtCDBScriptFile": "createsqldbuser.ps1",
 
         "InfaCustomeDBVMImage": "https://ispstorenp.blob.core.windows.net/copiedvhds/BaseSQL142102201602-os-2016-02-21-11DE904C.vhd",
-        //"InfaCustomVMDisk1": "[concat('https://', parameters('storageName'), '.blob.core.windows.net/vhds/', parameters('VM01Name'), '.SQLServer2014.osdisk.vhd')]",
-        "InfaCustomVMDisk1": "[concat('https://ispstorenp.blob.core.windows.net/copiedvhds/', 'SQLServer2014C01Test052.osdisk.vhd')]",
+        "InfaCustomVMDisk1": "[concat('https://', parameters('storageName'), '.blob.core.windows.net/vhds/', parameters('VM01Name'), '.SQLServer2014.osdisk.vhd')]",
 
         "VNetID": "[resourceId('Microsoft.Network/virtualNetworks', parameters('VNetName'))]",
         "SubnetId": "[concat(variables('VNetID'), '/subnets/', parameters('SubnetName'))]",
@@ -48,10 +47,6 @@
         "imagePublisher": "informatica",
         "imageOffer": "sqlserver-2014-image-preview",
         "osVersion": "sqlserver-2014-image-for-pc-bdm"
-
-        /*"imagePublisher": "MicrosoftWindowsServer",
-        "imageOffer": "WindowsServer",
-        "osVersion": "2012-R2-Datacenter"*/
     },
     "resources": [
         {
@@ -106,11 +101,11 @@
             "dependsOn": [
                 "[concat('Microsoft.Network/networkInterfaces/', variables('VM01NicName'))]"
             ],
-            /*"plan": {
-                "name": "BYOL",
+            "plan": {
+                "name": "[variables('osVersion')]",
                 "publisher": "[variables('imagePublisher')]",
                 "product": "[variables('imageOffer')]"
-            },*/
+            },
             "tags": {
                 "displayName": "VM01"
             },
@@ -123,7 +118,7 @@
                     "adminUsername": "[parameters('VM01AdminUsername')]",
                     "adminPassword": "[parameters('VM01AdminPassword')]"
                 },
-                /*"storageProfile": {
+                "storageProfile": {
                     "imageReference": {
                         "publisher": "[variables('imagePublisher')]",
                         "offer": "[variables('imageOffer')]",
@@ -136,20 +131,6 @@
                         "createOption": "FromImage",
                         "vhd": {
                             "uri": "[concat('https://', parameters('storageName'), '.blob.core.windows.net/vhds/', parameters('VM01Name'), '.osdisk.vhd')]"
-                        }
-                    }
-                },*/
-                "storageProfile": {
-                    "osDisk": {
-                        "name": "VM01OSDisk",
-                        "osType": "[variables('dbOsType')]",
-                        "caching": "ReadWrite",
-                        "createOption": "FromImage",
-                        "image": {
-                            "uri": "[variables('InfaCustomeDBVMImage')]"
-                        },
-                        "vhd": {
-                            "uri": "[variables('InfaCustomVMDisk1')]"
                         }
                     }
                 },
