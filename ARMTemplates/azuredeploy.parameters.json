@@ -3,13 +3,13 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageExistingOrNew": {
-            "value": "new"
+            "value": "existing"
         },
         "storageName": {
             "value": "infastoragetesttwo3"
         },
         "vnetExistingOrNew": {
-            "value": "new"
+            "value": "existing"
         },
         "vnetName": {
             "value": "BDMVnet3"
