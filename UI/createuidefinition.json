@@ -284,58 +284,6 @@
                 ]
             },
             {
-                "name": "infraConfiguration",
-                "label": "Infrastructure Settings",
-                "subLabel": {
-                    "preValidation": "Configure Storage and VNET settings",
-                    "postValidation": "Done"
-                },
-                "bladeTitle": "Infrastructure Settings",
-                "elements": [
-                    {
-                        "name": "storageAccount",
-                        "type": "Microsoft.Storage.StorageAccountSelector",
-                        "label": "Storage account",
-                        "toolTip": "Storage account used for the machines",
-                        "defaultValue": {
-                            "type": "Standard_LRS"
-                        }
-                    },
-                    {
-                        "name": "infavnet",
-                        "type": "Microsoft.Network.VirtualNetworkCombo",
-                        "label": {
-                            "virtualNetwork": "Virtual network",
-                            "subnets": "Subnets"
-                        },
-                        "toolTip": {
-                            "virtualNetwork": "Virtual network all resource required to be part of",
-                            "subnets": ""
-                        },
-                        "defaultValue": {
-                            "name": "InfaVNET",
-                            "addressPrefixSize": "/16"
-                        },
-                        "constraints": {
-                            "minAddressPrefixSize": "/29"
-                        },
-                        "subnets": {
-                            "subnet1": {
-                                "label": "Subnet",
-                                "defaultValue": {
-                                    "name": "InfaSubnet",
-                                    "addressPrefixSize": "/24"
-                                },
-                                "constraints": {
-                                    "minAddressPrefixSize": "/29",
-                                    "minAddressCount": 2,
-                                    "requireContiguousAddresses": true
-                                }
-                            }
-                        }
-                    }
-			},
-            {
                 "label": "Informatica Big Data Management settings",
                 "name": "infaBDEConfiguration",
                 "subLabel": {
@@ -442,6 +390,59 @@
                         }
                     }
                 ]
+            },
+            {
+                "name": "infraConfiguration",
+                "label": "Infrastructure Settings",
+                "subLabel": {
+                    "preValidation": "Configure Storage and VNET settings",
+                    "postValidation": "Done"
+                },
+                "bladeTitle": "Infrastructure Settings",
+                "elements": [
+                    {
+                        "name": "storageAccount",
+                        "type": "Microsoft.Storage.StorageAccountSelector",
+                        "label": "Storage account",
+                        "toolTip": "Storage account used for the machines",
+                        "defaultValue": {
+                            "type": "Standard_LRS"
+                        }
+                    },
+                    {
+                        "name": "infavnet",
+                        "type": "Microsoft.Network.VirtualNetworkCombo",
+                        "label": {
+                            "virtualNetwork": "Virtual network",
+                            "subnets": "Subnets"
+                        },
+                        "toolTip": {
+                            "virtualNetwork": "Virtual network all resource required to be part of",
+                            "subnets": ""
+                        },
+                        "defaultValue": {
+                            "name": "InfaVNET",
+                            "addressPrefixSize": "/16"
+                        },
+                        "constraints": {
+                            "minAddressPrefixSize": "/29"
+                        },
+                        "subnets": {
+                            "subnet1": {
+                                "label": "Subnet",
+                                "defaultValue": {
+                                    "name": "InfaSubnet",
+                                    "addressPrefixSize": "/24"
+                                },
+                                "constraints": {
+                                    "minAddressPrefixSize": "/29",
+                                    "minAddressCount": 2,
+                                    "requireContiguousAddresses": true
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         ],
 
@@ -473,7 +474,7 @@
             "vnetExistingOrNew": "[steps('infraConfiguration').infavnet.newOrExisting]",
             "subnetName": "[steps('infraConfiguration').infavnet.subnets.subnet1.name]",
             "subnetPrefix": "[steps('infraConfiguration').infavnet.subnets.subnet1.addressPrefix]",
-			"HDIClusterName": "[steps('infaBDEConfiguration').HDIClusterName]",
+            "HDIClusterName": "[steps('infaBDEConfiguration').HDIClusterName]",
 			"HDIClusterLoginUsername": "[steps('infaBDEConfiguration').HDIClusterLoginUsername]",
 			"HDIClusterLoginPassword": "[steps('infaBDEConfiguration').HDIClusterLoginPassword]",
 			"HDIClusterSSHHostname": "[steps('infaBDEConfiguration').HDIClusterSSHHostname]",
