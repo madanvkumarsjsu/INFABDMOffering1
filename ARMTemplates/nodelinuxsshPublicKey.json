@@ -111,8 +111,8 @@
         "InfaDBPort": "1433",
 
         "imagePublisher": "informatica",
-        "imageOffer": "powercenter-v10-domain-image-ubuntu14-04-3-preview",
-        "osVersion": "byol_ubuntu_for_pc_10"
+        "imageOffer": "powercenter-v10-update1-domain-image-ubuntu",
+        "osVersion": "byol_ubuntu_for_pc_10_0_update1"
     },
     "resources": [
         {
