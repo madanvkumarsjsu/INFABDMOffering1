@@ -167,8 +167,8 @@
             }
         },
         "VMCount": {
-            "type": "int",
-            "defaultValue": 2,
+            "type": "string",
+            "defaultValue": "2",
             "metadata": {
                 "description": "Node VM count"
             }
