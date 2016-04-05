@@ -141,6 +141,9 @@ chown -R $osUserName /mnt/infaaeshare
 #INFA BINARIES TO CLUSTER : RPM Installation - Start
 echo $osUserName $HDIClusterName $HDIClusterLoginUsername $HDIClusterLoginPassword $HDIClusterSSHHostname $HDIClusterSSHUsername $HDIClusterSSHPassword 
 
+if [ $joinDomain -eq 0 ]
+then
+
 mkdir /home/$osUserName/infaRPMInstall
 cd /home/$osUserName/infaRPMInstall
 wget http://ispstorenp.blob.core.windows.net/bderpm/informatica_10.0.0-1.deb
@@ -209,3 +212,4 @@ sh infacmd.sh createConnection -un $domainUser -pd $domainPassword -ct Hadoop -d
 #HDFS Connection
 sh infacmd.sh createConnection -un $domainUser -pd $domainPassword -ct HadoopFileSystem -dn $domainName -cn HDIHDFSConnection -o nameNodeURL=hdfs://$headnode0ip:8020 userName=$HDIClusterSSHUsername
 #Cluster Connection creation - End
+fi
