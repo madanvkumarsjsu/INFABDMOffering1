@@ -146,7 +146,9 @@ then
 
 mkdir /home/$osUserName/infaRPMInstall
 cd /home/$osUserName/infaRPMInstall
-wget http://ispstorenp.blob.core.windows.net/bderpm/informatica_10.0.0-1.deb
+#wget http://ispstorenp.blob.core.windows.net/bderpm/informatica_10.0.0-1.deb
+tar -zxvf /opt/Informatica/Archive/Hadoop_Debian/InformaticaHadoop-10.0.0.Update1-Deb.tar.gz
+cd /home/$osUserName/infaRPMInstall/InformaticaHadoop-10.0.0-1Deb
 
 #Ambari API calls to extract Head node and Data nodes
 echo "Getting list of hosts from ambari"
