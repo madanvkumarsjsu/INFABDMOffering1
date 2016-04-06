@@ -135,9 +135,6 @@ echo Y Y | sh silentinstall.sh
 
 infainstallionlocown=/home/$osUserName/Informatica
 
-chown -R $osUserName $infainstallionlocown
-chown -R $osUserName /opt/Informatica 
-chown -R $osUserName /mnt/infaaeshare
 #INFA BINARIES TO CLUSTER : RPM Installation - Start
 echo $osUserName $HDIClusterName $HDIClusterLoginUsername $HDIClusterLoginPassword $HDIClusterSSHHostname $HDIClusterSSHUsername $HDIClusterSSHPassword 
 
@@ -215,3 +212,7 @@ sh infacmd.sh createConnection -un $domainUser -pd $domainPassword -ct Hadoop -d
 sh infacmd.sh createConnection -un $domainUser -pd $domainPassword -ct HadoopFileSystem -dn $domainName -cn HDIHDFSConnection -o nameNodeURL=hdfs://$headnode0ip:8020 userName=$HDIClusterSSHUsername
 #Cluster Connection creation - End
 fi
+
+chown -R $osUserName $infainstallionlocown
+chown -R $osUserName /opt/Informatica 
+chown -R $osUserName /mnt/infaaeshare
