@@ -208,10 +208,10 @@ sed -i '/<configuration>/ a <property>\n<name>yarn.resourcemanager.webapp.addres
 cd $ispBinLocation
 #HadoopClusterConnection
 echo "connectioncreation1" >> /home/$osUserName/conn1.out
-sh infacmd.sh createConnection -un $domainUser -pd $domainPassword -ct Hadoop -dn $domainName -cn HDIClusterConnection -o RMAddress=$headnode0ip:8050 cadiMaxPort=9200 cadiMinPort=9100 cadiUserName=$HDIClusterSSHUsername cadiWorkingDirectory=/tmp databaseName=default defaultFSURI=hdfs://$headnode0ip:8020 engineType=MRv2 hiveWarehouseDirectoryOnHDFS=/hive/warehouse jobMonitoringURL=$headnode0ip:8088 metastoreMode=remote remoteMetastoreURI=thrift://$headnode0ip:9083
+#sh infacmd.sh createConnection -un $domainUser -pd $domainPassword -ct Hadoop -dn $domainName -cn HDIClusterConnection -o RMAddress=$headnode0ip:8050 cadiMaxPort=9200 cadiMinPort=9100 cadiUserName=$HDIClusterSSHUsername cadiWorkingDirectory=/tmp databaseName=default defaultFSURI=hdfs://$headnode0ip:8020 engineType=MRv2 hiveWarehouseDirectoryOnHDFS=/hive/warehouse jobMonitoringURL=$headnode0ip:8088 metastoreMode=remote remoteMetastoreURI=thrift://$headnode0ip:9083
 #HDFS Connection
 echo "connectioncreation2" >> /home/$osUserName/conn2.out
-sh infacmd.sh createConnection -un $domainUser -pd $domainPassword -ct HadoopFileSystem -dn $domainName -cn HDIHDFSConnection -o nameNodeURL=hdfs://$headnode0ip:8020 userName=$HDIClusterSSHUsername
+#sh infacmd.sh createConnection -un $domainUser -pd $domainPassword -ct HadoopFileSystem -dn $domainName -cn HDIHDFSConnection -o nameNodeURL=hdfs://$headnode0ip:8020 userName=$HDIClusterSSHUsername
 #Cluster Connection creation - End
 fi
 
