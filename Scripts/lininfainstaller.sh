@@ -144,6 +144,8 @@ echo $osUserName $HDIClusterName $HDIClusterLoginUsername $HDIClusterLoginPasswo
 if [ $joinDomain -eq 0 ]
 then
 #echo "inside if BDM" >> /home/$osUserName/output.out
+#Change sh to bash in server machine
+sudo ln -f -s /bin/bash /bin/sh
 mkdir /home/$osUserName/infaRPMInstall
 cd /home/$osUserName/infaRPMInstall
 #echo "before untar" >> /home/$osUserName/output.out
@@ -180,6 +182,10 @@ wnArr=$(echo $workernodes | tr "\n" "\n")
 #tmpRemoteFolderName = rpmtemp
 #filename = informatica_10.0.0-1.deb
 sudo apt-get install sshpass
+
+#Change sh to bash in headnode
+sudo sshpass -p $HDIClusterSSHPassword ssh -o StrictHostKeyChecking=no $HDIClusterSSHUsername@$headnode0ip "sudo ln -f -s /bin/bash /bin/sh"
+
 #echo "before scp rpm installations" >> /home/$osUserName/output.out
 for workernode in $wnArr
 do
@@ -196,6 +202,8 @@ do
 	sudo sshpass -p $HDIClusterSSHPassword ssh -o StrictHostKeyChecking=no $HDIClusterSSHUsername@$workernodeip "sudo dpkg -i ~/rpmtemp/informatica_10.0.0-1.deb"
 	#Clean the temp folder
 	sudo sshpass -p $HDIClusterSSHPassword ssh -o StrictHostKeyChecking=no $HDIClusterSSHUsername@$workernodeip "sudo rm -rf ~/rpmtemp"
+	#Change sh to bash in worker nodes
+	sudo sshpass -p $HDIClusterSSHPassword ssh -o StrictHostKeyChecking=no $HDIClusterSSHUsername@$workernodeip "sudo ln -f -s /bin/bash /bin/sh"
 done
 
 cd /home/$osUserName
@@ -214,10 +222,10 @@ sed -i '/<configuration>/ a <property>\n<name>yarn.resourcemanager.webapp.addres
 cd $ispBinLocation
 #HadoopClusterConnection
 #echo "connectioncreation1" >> /home/$osUserName/conn1.out
-sh infacmd.sh createConnection -un $domainUser -pd $domainPassword -ct Hadoop -dn $domainName -cn HDIClusterConnection -o RMAddress=$headnode0ip:8050 cadiMaxPort=9200 cadiMinPort=9100 cadiUserName=$HDIClusterSSHUsername cadiWorkingDirectory=/tmp databaseName=default defaultFSURI=hdfs://$headnode0ip:8020 engineType=MRv2 hiveWarehouseDirectoryOnHDFS=/hive/warehouse jobMonitoringURL=$headnode0ip:8088 metastoreMode=remote remoteMetastoreURI=thrift://$headnode0ip:9083
+sh infacmd.sh createConnection -un $domainUser -pd $domainPassword -ct Hadoop -dn $domainName -cn HDIClusterConnection -o RMAddress=$headnode0ip:8050 cadiMaxPort=9200 cadiMinPort=9100 cadiUserName=$HDIClusterSSHUsername cadiWorkingDirectory=/tmp databaseName=default defaultFSURI=hdfs://mycluster/ engineType=MRv2 hiveWarehouseDirectoryOnHDFS=/hive/warehouse jobMonitoringURL=$headnode0ip:8088 metastoreMode=remote remoteMetastoreURI=thrift://$headnode0ip:9083
 #HDFS Connection
 #echo "connectioncreation2" >> /home/$osUserName/conn2.out
-sh infacmd.sh createConnection -un $domainUser -pd $domainPassword -ct HadoopFileSystem -dn $domainName -cn HDIHDFSConnection -o nameNodeURL=hdfs://$headnode0ip:8020 userName=$HDIClusterSSHUsername
+sh infacmd.sh createConnection -un $domainUser -pd $domainPassword -ct HadoopFileSystem -dn $domainName -cn HDIHDFSConnection -o nameNodeURL=hdfs://mycluster/ userName=$HDIClusterSSHUsername
 #Cluster Connection creation - End
 fi
 #echo "after if statement" >> /home/$osUserName/output.out
