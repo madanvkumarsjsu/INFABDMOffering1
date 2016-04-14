@@ -72,6 +72,10 @@ $newSchema = "CREATE SCHEMA " + $dbUserName + " AUTHORIZATION " + $dbUserName
 
 waitTillDatabaseIsAlive
 executeSQLStatement $newLogin
+writeLog "Creating login: $newLogin"
 executeSQLStatement $newUser
+writeLog "Creating newuser: $newUser"
 executeSQLStatement $updateUserRole
+writeLog "Creating updateUserRole: $updateUserRole"
 executeSQLStatement $newSchema
+writeLog "Creating newSchema: $newSchema"
