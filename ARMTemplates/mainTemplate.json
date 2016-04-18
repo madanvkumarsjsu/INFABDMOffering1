@@ -203,8 +203,16 @@
             "defaultValue": "",
             "metadata": {
                 "description": "Informatica domain encryption key keyphrase"
-			}
+            }
         },
+        "baseUrl": {
+            "type": "string",
+            "metadata": {
+                "description": "Base URL for Marketplace",
+                "artifactsBaseUrl": "https://raw.githubusercontent.com/madanvkumarsjsu/INFABDMOffering1/master/ARMTemplates/"
+            },
+            "defaultValue": "https://raw.githubusercontent.com/madanvkumarsjsu/INFABDMOffering1/master/ARMTemplates/"
+		},
         "HDIClusterName": {
             "type": "string"
         },
@@ -237,7 +245,7 @@
         }
     },
     "variables": {
-        "baseuri": "https://raw.githubusercontent.com/madanvkumarsjsu/INFABDMOffering1/master/ARMTemplates/",
+        "baseuri": "[concat(parameters('baseUrl'), '/')]",
 
         "storageUri": "[concat(variables('baseuri'), 'storage', parameters('storageExistingOrNew'),'.json')]",
         "vnetUri": "[concat(variables('baseuri'), 'vnet', parameters('vnetExistingOrNew'),'.json')]",
@@ -347,6 +355,9 @@
                     },
                     "SubnetName": {
                         "value": "[parameters('subnetName')]"
+                    },
+                    "baseUrl": { 
+                        "value": "[variables('baseuri')]"
                     }
                 }
             }
@@ -419,7 +430,10 @@
                     "InfaKeyWord": {
                         "value": "[parameters('InfaKeyWord')]"
                     },
-                    "HDIClusterName": {
+                    "baseUrl": { 
+                        "value": "[variables('baseuri')]"
+                    },
+					"HDIClusterName": {
                         "value": "[parameters('HDIClusterName')]"
                     },
                     "HDIClusterLoginUsername": {

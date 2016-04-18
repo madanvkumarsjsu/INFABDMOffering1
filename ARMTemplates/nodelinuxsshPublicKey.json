@@ -63,6 +63,9 @@
             "type": "securestring",
             "minLength": 4
         },
+		"baseUrl": {
+			"type": "string"
+        },
         "HDIClusterName": {
             "type": "string"
         },
@@ -100,7 +103,7 @@
         "VMNicNamePrefix": "[concat(parameters('VMNamePrefix'),'Nic')]",
         "VMSubnetRef": "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName')), '/subnets/', parameters('subnetName'))]",
 
-        "ExtScriptURI": "https://raw.githubusercontent.com/madanvkumarsjsu/INFABDMOffering1/master/Scripts/",
+        "ExtScriptURI": "[parameters('baseUrl')]",
         "ExtWIScriptFile": "lininfainstaller.sh",
 
         "sshKeyPath": "[concat('/home/',parameters('VMAdminUserName'),'/.ssh/authorized_keys')]",
@@ -234,7 +237,7 @@
                     "properties": {
                         "publisher": "Microsoft.OSTCExtensions",
                         "type": "CustomScriptForLinux",
-                        "typeHandlerVersion": "1.4",
+                        "typeHandlerVersion": "1.8",
                         "autoUpgradeMinorVersion": true,
                         "settings": {
                             "fileUris": [
