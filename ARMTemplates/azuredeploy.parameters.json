@@ -6,22 +6,22 @@
             "value": "existing"
         },
         "storageName": {
-            "value": "infastoragetesttwo3"
+            "value": "bdeteststorage1"
         },
         "vnetExistingOrNew": {
             "value": "existing"
         },
         "vnetName": {
-            "value": "BDMVnetwork3"
+            "value": "BDMTestVnet"
         },
         "vnetAddressPrefix": {
-            "value": "14.0.0.0/16"
+            "value": "10.11.0.0/16"
         },
         "subnetName": {
-            "value": "default"
+            "value": "BDMTestVSubnet"
         },
         "subnetPrefix": {
-            "value": "14.0.0.0/24"
+            "value": "10.11.0.0/24"
         },
         "VM01Name": {
             "value": "dbvmtestsm"
@@ -48,7 +48,7 @@
             "value": "vmtestsm"
         },
         "VMCount": {
-            "value": 2
+            "value": "1"
         },
         "InfaDomainName": {
             "value": "ISPDomain"
@@ -69,7 +69,7 @@
             "value": "Standard_D11"
 		},
         "HDIClusterName": {
-            "value": "BDMRGTesting3Cluster"
+            "value": "BDMTestHDICluster"
         },
         "HDIClusterLoginUsername": {
             "value": "admin"
@@ -78,7 +78,7 @@
             "value": "Infabde@2016"
         },
         "HDIClusterSSHHostname": {
-            "value": "BDMRGTesting3Cluster-ssh.azurehdinsight.net"
+            "value": "BDMTestHDICluster-ssh.azurehdinsight.net"
         },
         "HDIClusterSSHUsername": {
             "value": "blazeuser"
@@ -87,16 +87,16 @@
             "value": "Infabde@2016"
         },
         "Clusterjobhistory": {
-            "value": "hn0-bdmrgt.szudijpagxbehkhe2w5ut1sn4c.ix.internal.cloudapp.ne:10020"
+            "value": "hn0-bdmtes.budaz4mbefnutjmo3np41grnpe.dx.internal.cloudapp.net:10020"
         },
         "Clusterjobhistorywebapp": {
-            "value": "hn0-bdmrgt.szudijpagxbehkhe2w5ut1sn4c.ix.internal.cloudapp.ne:19888"
+            "value": "hn0-bdmtes.budaz4mbefnutjmo3np41grnpe.dx.internal.cloudapp.net:19888"
         },
         "ClusterRMSaddress": {
-            "value": "hn0-bdmrgt.szudijpagxbehkhe2w5ut1sn4c.ix.internal.cloudapp.ne:8030"
+            "value": "hn0-bdmtes.budaz4mbefnutjmo3np41grnpe.dx.internal.cloudapp.net:8030"
         },
         "ClusterRMWaddress": { 
-            "value": "hn0-bdmrgt.szudijpagxbehkhe2w5ut1sn4c.ix.internal.cloudapp.ne:8088"
+            "value": "hn0-bdmtes.budaz4mbefnutjmo3np41grnpe.dx.internal.cloudapp.net:8088"
         },
 		"DBVMSize": {
             "value": "Standard_D3"
@@ -105,7 +105,7 @@
             "value": "password"
         },
         "location": {
-            "value": "Southeast Asia"
+            "value": "West US"
         },
         "VMAdminSshPublicKey": {
             "value": "testdummykey"
