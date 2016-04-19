@@ -34,6 +34,7 @@ function waitTillDatabaseIsAlive {
 }
 
 function executeSQLStatement {
+	start-transcript -path C:\Informatica\output1.txt -Append
     Param([String] $sqlStatement)
 
     $errorFlag = 0
