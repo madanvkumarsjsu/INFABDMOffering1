@@ -16,6 +16,13 @@
                 "description": "Storage new or existing"
             }
         },
+        "existingStorageRG": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Existing storage resource group name"
+            }
+        },
         "storageName": {
             "type": "string",
             "defaultValue": "infastorage",
@@ -39,6 +46,13 @@
             "defaultValue": "new",
             "metadata": {
                 "description": "VNET new or existing"
+            }
+        },
+        "existingVnetRG": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": { 
+                "description": "Existing VNET resource group name"
             }
         },
         "vnetName": {
@@ -276,11 +290,17 @@
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
+                    "location": {
+                        "value": "[parameters('location')]"
+                    },
                     "storageName": {
                         "value": "[parameters('storageName')]"
                     },
                     "storageType": {
                         "value": "[parameters('storageType')]"
+                    },
+                    "existingStorageRG": {
+                        "value": "[parameters('existingStorageRG')]"
                     }
                 }
             }
@@ -299,6 +319,9 @@
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
+                    "location": {
+                        "value": "[parameters('location')]"
+                    },
                     "vnetName": {
                         "value": "[parameters('vnetName')]"
                     },
@@ -310,6 +333,9 @@
                     },
                     "subnetPrefix": {
                         "value": "[parameters('subnetPrefix')]"
+                    },
+                    "existingVnetRG": {
+                        "value": "[parameters('existingVnetRG')]"
                     }
                 }
             }
@@ -329,6 +355,9 @@
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
+                    "location": {
+                        "value": "[parameters('location')]"
+                    },
                     "storageName": {
                         "value": "[parameters('storageName')]"
                     },
@@ -356,6 +385,9 @@
                     "SubnetName": {
                         "value": "[parameters('subnetName')]"
                     },
+                    "SubnetId": {
+                        "value": "[concat(reference('vnetSetup').outputs.vnetId.value, '/subnets/', parameters('SubnetName'))]"
+                    },
                     "baseUrl": { 
                         "value": "[variables('baseuri')]"
                     }
@@ -376,6 +408,9 @@
                     "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
+                    "location": { 
+                        "value": "[parameters('location')]"
+                    },
                     "storageName": {
                         "value": "[parameters('storageName')]"
                     },
@@ -384,6 +419,9 @@
                     },
                     "subnetName": {
                         "value": "[parameters('subnetName')]"
+                    },
+                    "SubnetId": {
+                        "value": "[concat(reference('vnetSetup').outputs.vnetId.value, '/subnets/', parameters('SubnetName'))]"
                     },
                     "VM01Name": {
                         "value": "[parameters('VM01Name')]"

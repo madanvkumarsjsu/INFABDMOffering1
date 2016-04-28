@@ -2,6 +2,9 @@
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "location": {
+            "type": "string"
+        },
         "storageName": {
             "type": "string"
         },
@@ -29,6 +32,9 @@
         "SubnetName": {
             "type": "string"
         },
+        "SubnetId": {
+            "type": "string"
+        },
         "baseUrl": {
             "type": "string"
         }
@@ -43,18 +49,15 @@
 
         "InfaCustomVMDisk1": "[concat('https://', parameters('storageName'), '.blob.core.windows.net/vhds/', parameters('VM01Name'), '.SQLServer2014.osdisk.vhd')]",
 
-        "VNetID": "[resourceId('Microsoft.Network/virtualNetworks', parameters('VNetName'))]",
-        "SubnetId": "[concat(variables('VNetID'), '/subnets/', parameters('SubnetName'))]",
-
         "imagePublisher": "informatica",
-        "imageOffer": "sqlserver-2014-image-preview",
+        "imageOffer": "sqlserver-2014-image",
         "osVersion": "sqlserver-2014-image-for-pc-bdm"
     },
     "resources": [
         {
-            "name": "[parameters('VM01Name')]",
+            "name": "[variables('publicDNSName')]",
             "type": "Microsoft.Network/publicIPAddresses",
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "apiVersion": "2015-06-15",
             "dependsOn": [ ],
             "tags": {
@@ -70,10 +73,10 @@
         {
             "name": "[variables('VM01NicName')]",
             "type": "Microsoft.Network/networkInterfaces",
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "apiVersion": "2015-06-15",
             "dependsOn": [
-                "[concat('Microsoft.Network/publicIPAddresses/', parameters('VM01Name'))]"
+                "[concat('Microsoft.Network/publicIPAddresses/', variables('publicDNSName'))]"
             ],
             "tags": {
                 "displayName": "VM01Nic"
@@ -85,10 +88,10 @@
                         "properties": {
                             "privateIPAllocationMethod": "Dynamic",
                             "subnet": {
-                                "id": "[variables('SubnetId')]"
+                                "id": "[parameters('SubnetId')]"
                             },
                             "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('VM01Name'))]"
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicDNSName'))]"
                             }
                         }
                     }
@@ -98,7 +101,7 @@
         {
             "name": "[parameters('VM01Name')]",
             "type": "Microsoft.Compute/virtualMachines",
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "apiVersion": "2015-06-15",
             "dependsOn": [
                 "[concat('Microsoft.Network/networkInterfaces/', variables('VM01NicName'))]"
@@ -148,7 +151,7 @@
                 {
                     "name": "ScriptExtDB",
                     "type": "extensions",
-                    "location": "[resourceGroup().location]",
+                    "location": "[parameters('location')]",
                     "apiVersion": "2015-06-15",
                     "dependsOn": [
                         "[concat('Microsoft.Compute/virtualMachines/', parameters('VM01Name'))]"
@@ -176,11 +179,11 @@
     ],
     "outputs": {
         "fqdn": {
-            "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',parameters('VM01Name')),providers('Microsoft.Network', 'publicIPAddresses').apiVersions[0]).dnsSettings.fqdn]",
+            "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',variables('publicDNSName')), '2015-06-15').dnsSettings.fqdn]",
             "type": "string"
         },
         "ipaddress": {
-            "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',parameters('VM01Name')),providers('Microsoft.Network', 'publicIPAddresses').apiVersions[0]).ipAddress]",
+            "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',variables('publicDNSName')), '2015-06-15').ipAddress]",
             "type": "string"
         }
     }
