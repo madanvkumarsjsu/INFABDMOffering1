@@ -6,22 +6,22 @@
             "value": "existing"
         },
         "storageName": {
-            "value": "bdeteststorage1"
+            "value": "infabdmoffering1storage"
         },
         "vnetExistingOrNew": {
             "value": "existing"
         },
         "vnetName": {
-            "value": "BDMTestVnet"
+            "value": "INFABDMOfferingVNet"
         },
         "vnetAddressPrefix": {
-            "value": "10.11.0.0/16"
+            "value": "10.13.0.0/16"
         },
         "subnetName": {
-            "value": "BDMTestVSubnet"
+            "value": "INFABDMOfferingVSubnet"
         },
         "subnetPrefix": {
-            "value": "10.11.0.0/24"
+            "value": "10.13.0.0/24"
         },
         "VM01Name": {
             "value": "infadb"
@@ -69,7 +69,7 @@
             "value": "Standard_D11"
 		},
         "HDIClusterName": {
-            "value": "BDMTestHDICluster"
+            "value": "INFABDMOffering1Cluster"
         },
         "HDIClusterLoginUsername": {
             "value": "admin"
@@ -78,7 +78,7 @@
             "value": "Infabde@2016"
         },
         "HDIClusterSSHHostname": {
-            "value": "BDMTestHDICluster-ssh.azurehdinsight.net"
+            "value": "INFABDMOffering1Cluster-ssh.azurehdinsight.net"
         },
         "HDIClusterSSHUsername": {
             "value": "blazeuser"
@@ -87,16 +87,16 @@
             "value": "Infabde@2016"
         },
         "Clusterjobhistory": {
-            "value": "hn0-bdmtes.budaz4mbefnutjmo3np41grnpe.dx.internal.cloudapp.net:10020"
+            "value": "hn0-infabd.u1i1nadehdiejpz5rjgf3krijg.gx.internal.cloudapp.net:10020"
         },
         "Clusterjobhistorywebapp": {
-            "value": "hn0-bdmtes.budaz4mbefnutjmo3np41grnpe.dx.internal.cloudapp.net:19888"
+            "value": "hn0-infabd.u1i1nadehdiejpz5rjgf3krijg.gx.internal.cloudapp.net:19888"
         },
         "ClusterRMSaddress": {
-            "value": "hn0-bdmtes.budaz4mbefnutjmo3np41grnpe.dx.internal.cloudapp.net:8030"
+            "value": "hn0-infabd.u1i1nadehdiejpz5rjgf3krijg.gx.internal.cloudapp.net:8030"
         },
         "ClusterRMWaddress": { 
-            "value": "hn0-bdmtes.budaz4mbefnutjmo3np41grnpe.dx.internal.cloudapp.net:8088"
+            "value": "hn0-infabd.u1i1nadehdiejpz5rjgf3krijg.gx.internal.cloudapp.net:8088"
         },
 		"DBVMSize": {
             "value": "Standard_D3"
@@ -105,16 +105,16 @@
             "value": "password"
         },
         "location": {
-            "value": "West US"
+            "value": "Central US"
         },
         "VMAdminSshPublicKey": {
             "value": "testdummykey"
         },
         "existingStorageRG": {
-            "value": "BDMTestingRG"
+            "value": "INFABDMOffering1"
         },
         "existingVnetRG": {
-            "value": "BDMTestingRG"
+            "value": "INFABDMOffering1"
         }
     }
 }
