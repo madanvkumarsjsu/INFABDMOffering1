@@ -21,7 +21,9 @@
                         "defaultValue": "2",
                         "toolTip": "",
                         "constraints": {
-                            "required": true
+                            "required": true,
+                            "regex": "^[1-9]([0-9]?)$",
+                            "validationMessage": "Only postive numbers are allowed. Maximum of two digits number is allowed"
                         }
                     },
                     {
@@ -31,7 +33,9 @@
                         "defaultValue": "VM",
                         "toolTip": "Prefix for machine name",
                         "constraints": {
-                            "required": true
+                            "required": true,
+                            "regex": "^([a-zA-Z][a-z0-9A-Z\\-\\.]{1,29})$",
+                            "validationMessage": "Host prefix should begin with alphabets. Only alphanumeric characters, hyphen and dot are allowed. The value must be 2-29 characters long"
                         }
                     },
                     {
@@ -68,24 +72,24 @@
                         "label": "Machine size",
                         "toolTip": "The size of the machine",
                         "recommendedSizes": [
-                            "Standard_D11",
-                            "Standard_D2"
+                            "Standard_DS11",
+                            "Standard_DS2"
                         ],
                         "constraints": {
                             "allowedSizes": [
-                                "Standard_A1",
-                                "Standard_A2",
-                                "Standard_A3",
-                                "Standard_A4",
-                                "Standard_A11",
-                                "Standard_D1",
-                                "Standard_D2",
-                                "Standard_D3",
-                                "Standard_D4",
-                                "Standard_D11",
-                                "Standard_D12",
-                                "Standard_D13",
-                                "Standard_D14"
+                                "Standard_DS1",
+                                "Standard_DS2",
+                                "Standard_DS3",
+                                "Standard_DS4",
+                                "Standard_DS11",
+                                "Standard_DS12",
+                                "Standard_DS13",
+                                "Standard_DS14",
+                                "Standard_GS1",
+                                "Standard_GS2",
+                                "Standard_GS3",
+                                "Standard_GS4",
+                                "Standard_GS5"
                             ]
                         },
                         "osPlatform": "Linux",
@@ -110,8 +114,8 @@
                         "toolTip": "Specify a name for the Domain",
                         "constraints": {
                             "required": true,
-                            "regex": "^[a-z0-9A-Z_]{1,30}$",
-                            "validationMessage": "Only alphanumeric characters and underscore are allowed, and the value must be 1-30"
+                            "regex": "^[a-z0-9A-Z_]{3,30}$",
+                            "validationMessage": "Only alphanumeric characters and underscore are allowed. The value must be 3-30"
                         }
                     },
                     {
@@ -122,8 +126,8 @@
                         "toolTip": "Domain administrator user name",
                         "constraints": {
                             "required": true,
-                            "regex": "^[a-z0-9A-Z_]{1,30}$",
-                            "validationMessage": "Only alphanumeric characters and underscore are allowed, and the value must be 1-30"
+                            "regex": "^[a-z0-9A-Z_]{3,30}$",
+                            "validationMessage": "Only alphanumeric characters and underscore are allowed. The value must be 3-30"
                         }
                     },
                     {
@@ -154,7 +158,7 @@
                         "constraints": {
                             "required": true,
                             "regex": "^(?:(?=.*[a-z])(?:(?=.*[A-Z])(?=.*[\\d\\W])|(?=.*\\W)(?=.*\\d))|(?=.*\\W)(?=.*[A-Z])(?=.*\\d)).{8,72}$",
-                            "validationMessage": "Keyphrase must be at least 8 characters in length. Should contain at least one special, number, upper-case and lower-case character"
+                            "validationMessage": "Keyphrase must be at least 8 characters in length. Should contain at least one special character, number, upper-case and lower-case character"
                         },
                         "options": {
                             "hideConfirmation": true
@@ -192,8 +196,8 @@
                         "label": "Database  machine name",
                         "constraints": {
                             "required": true,
-                            "regex": "^[A-Za-z0-9_]{1,30}$",
-                            "validationMessage": "Only alphanumeric characters and underscores are allowed, and the value must be 1-30 characters long"
+                            "regex": "^([a-zA-Z][a-z0-9A-Z\\-\\.]{2,30})$",
+                            "validationMessage": "Only alphanumeric characters, hyphen and dot are allowed. The value must be 3-30 characters long"
                         },
                         "options": { }
                     },
@@ -203,25 +207,25 @@
                         "label": "Database machine size",
                         "toolTip": "The size of machine for database",
                         "recommendedSizes": [
-                            "Standard_D3",
-                            "Standard_D4",
-                            "Standard_D5"
+                            "Standard_DS3",
+                            "Standard_DS4",
+                            "Standard_DS5"
                         ],
                         "constraints": {
                             "allowedSizes": [
-                                "Standard_A1",
-                                "Standard_A2",
-                                "Standard_A3",
-                                "Standard_A4",
-                                "Standard_A11",
-                                "Standard_D1",
-                                "Standard_D2",
-                                "Standard_D3",
-                                "Standard_D4",
-                                "Standard_D11",
-                                "Standard_D12",
-                                "Standard_D13",
-                                "Standard_D14"
+                                "Standard_DS1",
+                                "Standard_DS2",
+                                "Standard_DS3",
+                                "Standard_DS4",
+                                "Standard_DS11",
+                                "Standard_DS12",
+                                "Standard_DS13",
+                                "Standard_DS14",
+                                "Standard_GS1",
+                                "Standard_GS2",
+                                "Standard_GS3",
+                                "Standard_GS4",
+                                "Standard_GS5"
                             ]
                         },
                         "osPlatform": "Windows",
@@ -234,8 +238,7 @@
                         "toolTip": "Admin username for the  machines",
                         "osPlatform": "Windows",
                         "constraints": {
-                            "required": true,
-                            "validationMessage": "Only alphanumeric characters and underscore are allowed, and the value must be 1-30"
+                            "required": true
                         }
                     },
                     {
@@ -261,8 +264,8 @@
                         "toolTip": "Database user to be created for communication between Domain and Domain database",
                         "constraints": {
                             "required": true,
-                            "regex": "^[a-z0-9A-Z_]{1,30}$",
-                            "validationMessage": "Only alphanumeric characters and underscore are allowed, and the value must be 1-30"
+                            "regex": "^[a-z0-9A-Z_]{3,30}$",
+                            "validationMessage": "Only alphanumeric characters and underscore are allowed, and the value must be 3-30"
                         }
                     },
                     {
@@ -275,7 +278,7 @@
                         "constraints": {
                             "required": true,
                             "regex": "^(?:(?=.*[a-z])(?:(?=.*[A-Z])(?=.*[\\d\\W])|(?=.*\\W)(?=.*\\d))|(?=.*\\W)(?=.*[A-Z])(?=.*\\d)).{5,72}$",
-                            "validationMessage": "Password must be at least 5 characters in length. Should contain at least one special, number, upper-case and lower-case character"
+                            "validationMessage": "Password must be at least 5 characters in length. Should contain at least one special character, number, upper-case and lower-case character"
                         },
                         "options": {
                             "hideConfirmation": false
@@ -417,7 +420,7 @@
                             "subnets": "Subnets"
                         },
                         "toolTip": {
-                            "virtualNetwork": "Virtual network all resource required to be part of",
+                            "virtualNetwork": "Select the same virtual network that HDInsight Cluster is part of",
                             "subnets": ""
                         },
                         "defaultValue": {
@@ -469,9 +472,11 @@
             "storageName": "[steps('infraConfiguration').storageAccount.name]",
             "storageType": "[steps('infraConfiguration').storageAccount.type]",
             "storageExistingOrNew": "[steps('infraConfiguration').storageAccount.newOrExisting]",
+            "existingStorageRG": "[steps('infraConfiguration').storageAccount.resourceGroup]",
             "vnetName": "[steps('infraConfiguration').infavnet.name]",
             "vnetAddressPrefix": "[steps('infraConfiguration').infavnet.addressPrefix]",
             "vnetExistingOrNew": "[steps('infraConfiguration').infavnet.newOrExisting]",
+            "existingVnetRG": "[steps('infraConfiguration').infavnet.resourceGroup]",
             "subnetName": "[steps('infraConfiguration').infavnet.subnets.subnet1.name]",
             "subnetPrefix": "[steps('infraConfiguration').infavnet.subnets.subnet1.addressPrefix]",
             "HDIClusterName": "[steps('infaBDEConfiguration').HDIClusterName]",

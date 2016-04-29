@@ -38,7 +38,7 @@ function executeSQLStatement {
 
     $errorFlag = 0
     $tryCount = 0
-
+	start-transcript -path C:\Informatica\output1.txt -Append
     while($errorFlag -eq 0 -And $tryCount -lt 3) {
         $tryCount++
         try {
