@@ -71,7 +71,6 @@
                         "type": "Microsoft.Compute.SizeSelector",
                         "label": "Machine size",
                         "toolTip": "The size of the machine",
-                        "defaultValue": "Standard_D3",
                         "recommendedSizes": [
                             "Standard_DS11",
                             "Standard_DS2"
@@ -208,7 +207,6 @@
                         "type": "Microsoft.Compute.SizeSelector",
                         "label": "Database machine size",
                         "toolTip": "The size of machine for database",
-                        "defaultValue": "Standard_D3",
                         "recommendedSizes": [
                             "Standard_DS3",
                             "Standard_DS4",
@@ -318,7 +316,7 @@
                         "toolTip": "Check the HDInsight cluster login under settings. This is usually the credential to login into Ambari",
                         "constraints": {
                             "required": true,
-                            "regex": "^([a-zA-Z][a-z0-9A-Z!#$%&'()-^_`{}~\\-]{2,100})$",
+                            "regex": "^([a-zA-Z!#$%&'()-^_`{}~][a-z0-9A-Z\\-]{2,100})$",
                             "validationMessage": "The username must be at least two characters in length and can only consist of digits, upper or lowercase letters, and/or the following special characters: ! # $ % & ' ( ) - ^ _ ` { } ~"
                         }
                     },
@@ -342,7 +340,7 @@
                         "toolTip": "HDInsight cluster's headnode SSH hostname",
                         "constraints": {
                             "required": true,
-                            "regex": "^([a-zA-Z][a-z0-9A-Z\\-]{1,59})$",
+                            "regex": "^([a-zA-Z][a-z0-9A-Z.\\-]{1,59})$",
                             "validationMessage": "The name can contain letters, numbers, and hyphens and followed by .azurehdinsight.net"
                         }
                     },
@@ -354,7 +352,7 @@
                         "toolTip": "HDInsight cluster's headnode SSH username",
                         "constraints": {
                             "required": true,
-                            "regex": "^([a-zA-Z][a-z0-9A-Z#$%&'()-^_`{}~\\-]{2,100})$",
+                            "regex": "^([a-zA-Z#$%&'()-^_`{}~][a-z0-9A-Z\\-]{2,100})$",
                             "validationMessage": "The SSH username must be at least two characters in length and can only consist of digits, upper or lowercase letters, and/or the following special characters: # $ % & ' ( ) - ^ _ ` { } ~"
                         }
                     },
