@@ -467,7 +467,7 @@
         ],
 
         "outputs": {
-            "location": "[location()]",
+            /*"location": "[location()]",
             "VMCount": "[steps('nodeVMConfiguration').domainNodeCount]",
             "VMNamePrefix": "[steps('nodeVMConfiguration').nodeVMPrefix]",
             "VMAdminUserName": "[steps('nodeVMConfiguration').nodeVMAdminUsername]",
@@ -505,7 +505,7 @@
             "Clusterjobhistory": "[steps('infaBDEConfiguration').Clusterjobhistory]",
             "Clusterjobhistorywebapp": "[steps('infaBDEConfiguration').Clusterjobhistorywebapp]",
             "ClusterRMSaddress": "[steps('infaBDEConfiguration').ClusterRMSaddress]",
-            "ClusterRMWaddress": "[steps('infaBDEConfiguration').ClusterRMWaddress]"
+            "ClusterRMWaddress": "[steps('infaBDEConfiguration').ClusterRMWaddress]"*/
         }
     }
 }
