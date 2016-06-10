@@ -5,7 +5,7 @@
         "basics": [
         ],
         "steps": [
-           /* {
+             {
                 "name": "nodeVMConfiguration",
                 "label": "Node Settings",
                 "subLabel": {
@@ -97,7 +97,7 @@
                     }
                 ]
             },
-            {
+            /*{
                 "label": "Informatica Domain Settings",
                 "name": "infaDomainConfiguration",
                 "subLabel": {
@@ -497,15 +497,15 @@
             "subnetName": "[steps('infraConfiguration').infavnet.subnets.subnet1.name]",
             "subnetPrefix": "[steps('infraConfiguration').infavnet.subnets.subnet1.addressPrefix]",
             "HDIClusterName": "[steps('infaBDEConfiguration').HDIClusterName]",
-			"HDIClusterLoginUsername": "[steps('infaBDEConfiguration').HDIClusterLoginUsername]",
-			"HDIClusterLoginPassword": "[steps('infaBDEConfiguration').HDIClusterLoginPassword]",
-			"HDIClusterSSHHostname": "[steps('infaBDEConfiguration').HDIClusterSSHHostname]",
-			"HDIClusterSSHUsername": "[steps('infaBDEConfiguration').HDIClusterSSHUsername]",
-			"HDIClusterSSHPassword": "[steps('infaBDEConfiguration').HDIClusterSSHPassword]",
-			"Clusterjobhistory": "[steps('infaBDEConfiguration').Clusterjobhistory]",
-			"Clusterjobhistorywebapp": "[steps('infaBDEConfiguration').Clusterjobhistorywebapp]",
-			"ClusterRMSaddress": "[steps('infaBDEConfiguration').ClusterRMSaddress]",
-			"ClusterRMWaddress": "[steps('infaBDEConfiguration').ClusterRMWaddress]"
+            "HDIClusterLoginUsername": "[steps('infaBDEConfiguration').HDIClusterLoginUsername]",
+            "HDIClusterLoginPassword": "[steps('infaBDEConfiguration').HDIClusterLoginPassword]",
+            "HDIClusterSSHHostname": "[steps('infaBDEConfiguration').HDIClusterSSHHostname]",
+            "HDIClusterSSHUsername": "[steps('infaBDEConfiguration').HDIClusterSSHUsername]",
+            "HDIClusterSSHPassword": "[steps('infaBDEConfiguration').HDIClusterSSHPassword]",
+            "Clusterjobhistory": "[steps('infaBDEConfiguration').Clusterjobhistory]",
+            "Clusterjobhistorywebapp": "[steps('infaBDEConfiguration').Clusterjobhistorywebapp]",
+            "ClusterRMSaddress": "[steps('infaBDEConfiguration').ClusterRMSaddress]",
+            "ClusterRMWaddress": "[steps('infaBDEConfiguration').ClusterRMWaddress]"
         }
     }
 }
