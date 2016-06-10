@@ -71,6 +71,7 @@
                         "type": "Microsoft.Compute.SizeSelector",
                         "label": "Machine size",
                         "toolTip": "The size of the machine",
+                        "defaultValue": "Standard_D3",
                         "recommendedSizes": [
                             "Standard_DS11",
                             "Standard_DS2"
@@ -207,6 +208,7 @@
                         "type": "Microsoft.Compute.SizeSelector",
                         "label": "Database machine size",
                         "toolTip": "The size of machine for database",
+                        "defaultValue": "Standard_D3",
                         "recommendedSizes": [
                             "Standard_DS3",
                             "Standard_DS4",
