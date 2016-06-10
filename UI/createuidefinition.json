@@ -22,8 +22,8 @@
                         "toolTip": "",
                         "constraints": {
                             "required": true,
-                            "regex": "^[1-9]([0-9]?)$",
-                            "validationMessage": "Only postive numbers are allowed. Maximum of two digits number is allowed"
+                            "regex": "^(([1-3]?[1-9]$)|([1-3][0]$)){1,2}",
+                            "validationMessage": "Only postive number is allowed. Should be less than or equal to 39"
                         }
                     },
                     {
@@ -34,8 +34,8 @@
                         "toolTip": "Prefix for machine name",
                         "constraints": {
                             "required": true,
-                            "regex": "^([a-zA-Z][a-z0-9A-Z\\-\\.]{1,29})$",
-                            "validationMessage": "Host prefix should begin with alphabets. Only alphanumeric characters, hyphen and dot are allowed. The value must be 2-29 characters long"
+                            "regex": "^([a-zA-Z][a-z0-9A-Z\\-]{1,29})$",
+                            "validationMessage": "Host prefix should begin with alphabets. Only alphanumeric characters, and hyphen are allowed. The value must be 2-29 characters long"
                         }
                     },
                     {
@@ -139,8 +139,8 @@
                         },
                         "constraints": {
                             "required": true,
-                            "regex": "^.{4,}$",
-                            "validationMessage": "Password must at least 4 characters in length."
+                            "regex": "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[^\\s\\w]).{8,123}$",
+                            "validationMessage": "Password must be at least 8 characters in length. Should contain at least one special character, number, upper-case and lower-case character"
                         },
                         "options": {
                             "hideConfirmation": false
@@ -157,7 +157,7 @@
                         },
                         "constraints": {
                             "required": true,
-                            "regex": "^(?:(?=.*[a-z])(?:(?=.*[A-Z])(?=.*[\\d\\W])|(?=.*\\W)(?=.*\\d))|(?=.*\\W)(?=.*[A-Z])(?=.*\\d)).{8,72}$",
+                            "regex": "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[^\\s\\w]).{8,123}$",
                             "validationMessage": "Keyphrase must be at least 8 characters in length. Should contain at least one special character, number, upper-case and lower-case character"
                         },
                         "options": {
@@ -194,10 +194,11 @@
                         "name": "databaseName",
                         "type": "Microsoft.Common.TextBox",
                         "label": "Database  machine name",
+                        "defaultValue": "DVM",
                         "constraints": {
                             "required": true,
-                            "regex": "^([a-zA-Z][a-z0-9A-Z\\-\\.]{2,30})$",
-                            "validationMessage": "Only alphanumeric characters, hyphen and dot are allowed. The value must be 3-30 characters long"
+                            "regex": "^([a-zA-Z][a-z0-9A-Z\\-]{2,30})$",
+                            "validationMessage": "Only alphanumeric characters, and hyphen are allowed. The value must be 3-30 characters long"
                         },
                         "options": { }
                     },
@@ -277,8 +278,8 @@
                         },
                         "constraints": {
                             "required": true,
-                            "regex": "^(?:(?=.*[a-z])(?:(?=.*[A-Z])(?=.*[\\d\\W])|(?=.*\\W)(?=.*\\d))|(?=.*\\W)(?=.*[A-Z])(?=.*\\d)).{5,72}$",
-                            "validationMessage": "Password must be at least 5 characters in length. Should contain at least one special character, number, upper-case and lower-case character"
+                            "regex": "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[^\\s\\w]).{8,123}$",
+                            "validationMessage": "Password must be at least 8 characters in length. Should contain at least one special character, number, upper-case and lower-case character"
                         },
                         "options": {
                             "hideConfirmation": false
@@ -302,7 +303,9 @@
                         "defaultValue": "",
                         "toolTip": "Check the HDInsight cluster properties under settings",
                         "constraints": {
-                            "required": true
+                            "required": true,
+                            "regex": "^([a-zA-Z][a-z0-9A-Z\\-]{1,59})$",
+                            "validationMessage": "The name must be 59 characters or less and can contain letters, numbers, and hyphens (but the first and last character must be a letter or number). The name can not contain a reserved key word."
                         }
                     },
                     {
@@ -312,7 +315,9 @@
                         "defaultValue": "",
                         "toolTip": "Check the HDInsight cluster login under settings. This is usually the credential to login into Ambari",
                         "constraints": {
-                            "required": true
+                            "required": true,
+                            "regex": "^([a-zA-Z][a-z0-9A-Z\\-\\!\\#\\$\\%\\&\\'\\(\\)\\-\\^\\_\\`\\{\\}\\~]{2,100})$",
+                            "validationMessage": "The username must be at least two characters in length and can only consist of digits, upper or lowercase letters, and/or the following special characters: ! # $ % & ' ( ) - ^ _ ` { } ~"
                         }
                     },
                     {
@@ -322,7 +327,9 @@
                         "defaultValue": "",
                         "toolTip": "Check the HDInsight cluster login under settings. This is usually the credential to login into Ambari",
                         "constraints": {
-                            "required": true
+                            "required": true,
+                            "regex": "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[^\\s\\w]).{10,123}$",
+                            "validationMessage": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
                         }
                     },
                     {
@@ -330,7 +337,12 @@
                         "type": "Microsoft.Common.TextBox",
                         "label": "HDInsight Cluster SSH hostname",
                         "defaultValue": "hostname-ssh.azurehdinsight.net",
-                        "toolTip": "HDInsight cluster's headnode SSH hostname"
+                        "toolTip": "HDInsight cluster's headnode SSH hostname",
+                        "constraints": {
+                            "required": true,
+                            "regex": "^([a-zA-Z][a-z0-9A-Z.\\-]{1,59})$",
+                            "validationMessage": "The name can contain letters, numbers, and hyphens and followed by .azurehdinsight.net"
+                        }
                     },
                     {
                         "name": "HDIClusterSSHUsername",
@@ -339,7 +351,9 @@
                         "defaultValue": "",
                         "toolTip": "HDInsight cluster's headnode SSH username",
                         "constraints": {
-                            "required": true
+                            "required": true,
+                            "regex": "^([a-zA-Z][a-z0-9A-Z\\-\\#\\$\\%\\&\\'\\(\\)\\-\\^\\_\\`\\{\\}\\~]{2,100})$",
+                            "validationMessage": "The SSH username must be at least two characters in length and can only consist of digits, upper or lowercase letters, and/or the following special characters: # $ % & ' ( ) - ^ _ ` { } ~"
                         }
                     },
                     {
@@ -349,7 +363,10 @@
                         "defaultValue": "",
                         "toolTip": "HDInsight cluster's headnode SSH password",
                         "constraints": {
-                            "required": true
+                            "required": true,
+                            "regex": "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[^\\s\\w]).{10,123}$",
+                            "validationMessage": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
+
                         }
                     },
                     {
@@ -428,7 +445,7 @@
                             "addressPrefixSize": "/16"
                         },
                         "constraints": {
-                            "minAddressPrefixSize": "/29"
+                            "minAddressPrefixSize": "/30"
                         },
                         "subnets": {
                             "subnet1": {
@@ -438,8 +455,8 @@
                                     "addressPrefixSize": "/24"
                                 },
                                 "constraints": {
-                                    "minAddressPrefixSize": "/29",
-                                    "minAddressCount": 2,
+                                    "minAddressPrefixSize": "/30",
+                                    "minAddressCount": "[add(steps('nodeVMConfiguration').domainNodeCount, 1)]",
                                     "requireContiguousAddresses": true
                                 }
                             }
